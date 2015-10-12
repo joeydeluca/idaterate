@@ -1,1 +1,1 @@
-web: java -jar target/idaterate-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=prod
+web: java -jar target/idaterate-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT -Dspring.profiles.active=prod
