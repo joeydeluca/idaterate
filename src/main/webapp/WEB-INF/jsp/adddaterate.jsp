@@ -49,7 +49,7 @@
                                     <springForm:errors path="predefinedDatingSite" cssClass="text-danger" element="div"/>
                                 </div>
                             </div>
-                            <div class="form-group" id="DatingSiteDiv" style="display:none">
+                            <div class="form-group" id="DatingSiteDiv" <c:if test="${!showPredefinedDatingSiteOther}">style="display:none"</c:if> >
                                 <label class="col-sm-4 control-label">Dating site:</label>
                                 <div class="col-sm-8">
                                     <input type="text" name="userDefinedDatingSite" id="DatingSite" class="form-control"/>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">#Hashtags</label>
                                 <div class="col-sm-8">
-                                    <textarea id="demo1" name="hashtags"></textarea>
+                                    <textarea id="hashtags" name="hashtags" class="form-control"></textarea>
                                     <p class="small text-muted"><i><b>Example:</b> #NeverAgain #FunTime #Boring</i></p>
                                     <springForm:errors path="hashtags" cssClass="text-danger" element="div"/>
                                 </div>
@@ -112,12 +112,6 @@
             </div> 
         </div>
     </div>
-    <script>
-    $('#demo1').tagEditor({
-        delimiter: ', ', /* space and comma */
-        placeholder: '#'
-    });
-    </script>
     <script src="js/add_date_rate.js"></script>
 </body>
 </html>

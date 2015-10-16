@@ -1,5 +1,6 @@
 package com.idaterate.interfaces.controllers;
 
+import com.idaterate.interfaces.dtos.DateRateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -37,25 +38,28 @@ public class AddDateRateController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String addDateRate(Model model) {
-        if (!model.containsAttribute("dateRate")) {
-            model.addAttribute("dateRate", new DateRate());
+        if (!model.containsAttribute("dateRateDTO")) {
+            model.addAttribute("dateRateDTO", new DateRateDTO());
         }
         model.addAttribute("datingSiteOptions", DatingSite.getValues());
         model.addAttribute("scoreOptions", DatingScore.getDisplayNames());
+
+        DateRateDTO dateRateDTO = (DateRateDTO) model.asMap().get("dateRateDTO");
+        model.addAttribute("showPredefinedDatingSiteOther", DatingSite.OTHER.getId().equals(dateRateDTO.getPredefinedDatingSite()));
       
         return "adddaterate";
     }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(@ModelAttribute("dateRate") @Validated DateRate dateRate, BindingResult bindingResult, RedirectAttributes attr) {
+    public String submit(@ModelAttribute("dateRateDTO") @Validated DateRateDTO dateRate, BindingResult bindingResult, RedirectAttributes attr) {
         if(bindingResult.hasErrors()) {
-            attr.addFlashAttribute("org.springframework.validation.BindingResult.dateRate", bindingResult);
-            attr.addFlashAttribute("dateRate", dateRate);
+            attr.addFlashAttribute("org.springframework.validation.BindingResult.dateRateDTO", bindingResult);
+            attr.addFlashAttribute("dateRateDTO", dateRate);
             return "redirect:/daterate";
             
         }
         
-        dateRateRepository.save(dateRate);
+        dateRateRepository.save(dateRate.toDateRate());
         return "adddateratesuccess";
     }
 }

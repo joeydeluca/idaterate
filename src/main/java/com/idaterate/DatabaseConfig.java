@@ -31,10 +31,6 @@ public class DatabaseConfig
         String databaseUsername = env.getProperty("database.username");
         String databasePassword = env.getProperty("database.password");
 
-        if(System.getenv("IDR_DATABASE_URL") != null) databaseUrl = System.getenv("IDR_DATABASE_URL");
-        if(System.getenv("IDR_DATABASE_USERNAME") != null) databaseUsername = System.getenv("IDR_DATABASE_USERNAME");
-        if(System.getenv("IDR_DATABASE_PASSWORD") != null) databasePassword = System.getenv("IDR_DATABASE_PASSWORD");
-
         return DataSourceBuilder.create()
                 .url(databaseUrl)
                 .username(databaseUsername)
