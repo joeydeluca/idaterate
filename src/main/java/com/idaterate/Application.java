@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.idaterate.domain.DateRate;
+import com.idaterate.infrastructure.settings.Settings;
+import com.idaterate.infrastructure.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.PropertySource;
 
 import com.idaterate.infrastructure.repositories.DateRateRepository;
 
@@ -26,6 +23,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private DateRateRepository dateRateRepository;
+
+    @Autowired
+    private SettingsService settingsService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -45,10 +45,9 @@ public class Application implements CommandLineRunner {
             dateRate.setHashtags(tags);
             dateRateRepository.save(dateRate);
         }
-    }
 
-    @Bean
-    public CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("dateRateList");
+        settingsService.addSetting(Settings.API_CODE, "12345");
+
+        System.out.println(settingsService.getSetting(Settings.API_CODE));
     }
 }

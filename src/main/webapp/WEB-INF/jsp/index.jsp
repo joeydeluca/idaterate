@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -118,32 +119,12 @@
             <div class="row">
                 <div class="col-md-6">
                 <c:forEach var="dateRate" items="${worstDateRateList}">
-                    <div class="panel panel-default">
-                        <div class="media" style="padding:20px">
-                          <div class="media-left">
-                              <img src="http://www.free-emoticons.com/files/emoticons-smileys/6039.png" class="media-object"/>
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right text-muted">Score: ${dateRate.score}</span></h4>
-                              <p>${dateRate.description}</p>
-                          </div>
-                        </div>
-                    </div>
+                    <tags:dateRateItem dateRate="${dateRate}"/>
                 </c:forEach>
                 </div>
                 <div class="col-md-6">
                 <c:forEach var="dateRate" items="${bestDateRateList}">
-                    <div class="panel panel-default">
-                        <div class="media" style="padding:20px">
-                          <div class="media-left">
-                              <img src="http://www.free-emoticons.com/files/emoticons-smileys/6039.png" class="media-object"/>
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right text-muted">Score: ${dateRate.score}</span></h4>
-                              <p>${dateRate.description}</p>
-                          </div>
-                        </div>
-                    </div>
+                    <tags:dateRateItem dateRate="${dateRate}"/>
                 </c:forEach>
                 </div>
             </div>

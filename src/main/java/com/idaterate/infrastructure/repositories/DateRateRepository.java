@@ -1,6 +1,7 @@
 package com.idaterate.infrastructure.repositories;
 
 import com.idaterate.domain.DateRate;
+import com.idaterate.infrastructure.common.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -19,17 +20,17 @@ public class DateRateRepository {
     @Autowired
     private IDateRateRepository iDateRateRepository;
 
-    @Cacheable("dateRateList")
+    @Cacheable(Constants.DATE_RATE_CACHE)
          public Page<DateRate> findAll(Pageable pageable) {
         return iDateRateRepository.findAll(pageable);
     }
 
-    @Cacheable("dateRateList")
+    @Cacheable(Constants.DATE_RATE_CACHE)
     public List<DateRate> findByUsername(String username) {
         return iDateRateRepository.findByDateUsername(username);
     }
 
-    @CacheEvict(value="dateRateList", allEntries=true)
+    @CacheEvict(value=Constants.DATE_RATE_CACHE, allEntries=true)
     public DateRate save(DateRate entity) {
         return iDateRateRepository.save(entity);
     }

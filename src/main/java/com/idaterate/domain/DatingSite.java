@@ -1,5 +1,7 @@
 package com.idaterate.domain;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -33,5 +35,15 @@ public enum DatingSite {
         }
         
         return values;
+    }
+
+    public static DatingSite getEnumFromId(String id) throws IllegalArgumentException {
+        for(DatingSite datingSite : DatingSite.values()) {
+            if(datingSite.getId().equals(id)) {
+                return datingSite;
+            }
+        }
+
+        throw new IllegalArgumentException("DatingSite enum id not found: " + id);
     }
 }

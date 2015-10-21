@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,8 +15,11 @@
 <body>
     <jsp:include page="layouts/nav.jsp"/>
     <div class="container">
+        <h1>Search Results</h1>
+        <hr/>
+        <c:if test="${empty dateRateList}"><p>No records found for search criteria.</p></c:if>
         <c:forEach var="dateRate" items="${dateRateList}">
-            -${dateRate.dateUsername}-
+            <tags:dateRateItem dateRate="${dateRate}"/>
         </c:forEach>
     </div>
 </body>

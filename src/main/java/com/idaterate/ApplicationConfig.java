@@ -1,5 +1,8 @@
 package com.idaterate;
 
+import com.idaterate.infrastructure.common.Constants;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +25,10 @@ public class ApplicationConfig
         return messageSource;
     }
 
-
+    @Bean
+    public CacheManager cacheManager() {
+        return new ConcurrentMapCacheManager(Constants.DATE_RATE_CACHE, Constants.SETTINGS_CACHE);
+    }
 
 
 
