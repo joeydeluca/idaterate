@@ -3,14 +3,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>iDateRate | Search Date Ratings</title>
+    <jsp:include page="layouts/head.jsp"/>
 </head>
 <body>
     <jsp:include page="layouts/nav.jsp"/>
@@ -19,7 +13,9 @@
         <hr/>
         <c:if test="${empty dateRateList}"><p>No records found for search criteria.</p></c:if>
         <c:forEach var="dateRate" items="${dateRateList}">
-            <tags:dateRateItem dateRate="${dateRate}"/>
+            <div class="col-md-6">
+                <tags:dateRateItem dateRate="${dateRate}"/>
+            </div>
         </c:forEach>
     </div>
 </body>

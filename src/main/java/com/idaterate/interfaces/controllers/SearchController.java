@@ -24,12 +24,20 @@ public class SearchController {
     private DateRateService service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String search(@RequestParam(value="username") String username, Model model) {
-        List<DateRateDisplayItemDTO> bestDateRateList = new ArrayList<>();
-        for(DateRate dateRate : service.findDateRateByUsername(username)) {
-            bestDateRateList.add(DateRateDisplayItemDTO.build(dateRate));
+    public String search(@RequestParam(value="username", required = false) String username, Model model) {
+        List<DateRateDisplayItemDTO> dateRateList = new ArrayList<>();
+        List<DateRate> dateRates = new ArrayList<>();
+
+        if(username != null) {
+            dateRates = service.findDateRateByUsername(username);
+        } else {
+            dateRates = service.getWorstDateRates();
         }
-        model.addAttribute("dateRateList", bestDateRateList);
+
+        for (DateRate dateRate : dateRates) {
+            dateRateList.add(DateRateDisplayItemDTO.build(dateRate));
+        }
+        model.addAttribute("dateRateList", dateRateList);
         return "search";
     }
 

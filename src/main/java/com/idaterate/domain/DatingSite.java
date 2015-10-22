@@ -1,7 +1,5 @@
 package com.idaterate.domain;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 

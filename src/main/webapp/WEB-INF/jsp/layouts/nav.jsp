@@ -12,8 +12,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="/daterate">Rate your Date</a></li>
-                <li><a href="/babynamegenerator">View Ratings</a></li>
-                <li><a href="/dognamegenerator">Contact</a></li>
+                <li><a href="/search">View Ratings</a></li>
+                <li><a href="/#">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

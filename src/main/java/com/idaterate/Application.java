@@ -33,7 +33,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 10; i++) {
             DateRate dateRate = new DateRate();
             dateRate.setDateUsername("test username " + i);
             dateRate.setDescription("The best I ever had");

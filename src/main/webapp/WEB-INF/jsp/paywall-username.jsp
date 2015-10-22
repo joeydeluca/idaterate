@@ -4,18 +4,7 @@
 <html>
 <head>
     <title>iDateRate | QuickPay</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="http://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-	
-    <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
-    <script src="js/jquery.caret.min.js"></script>
-    <script src="js/jquery.tag-editor.min.js"></script>
-        
-    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"/>
-    <link href="/css/jquery.tag-editor.css" rel="stylesheet" type="text/css"/>
+   <jsp:include page="layouts/head.jsp"/>
 
 </head>
 <body>
