@@ -74,12 +74,21 @@
                                 <springForm:errors path="hashtags" cssClass="text-danger" element="div"/>
                             </div>
                         </div>
+                        <c:if test="${!empty recaptcha_site_key}">
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-sm-8">
+                                    <div id="recaptcha_element"></div>
+                                    <springForm:errors path="recaptcha" cssClass="text-danger" element="div"/>
+                                </div>
+                            </div>
+                        </c:if>
                         <hr/>
                         <div class="form-group">
                             <div class="col-xs-12 text-right">
                                 <input type="submit" value="Rate!" class="btn btn-primary"/>
                             </div>
                         </div>
+                        <input type="hidden" name="recaptcha" id="recaptcha" />
                     </springForm:form>
                   </div>
                 </div>
@@ -87,5 +96,20 @@
         </div>
     </div>
     <script src="js/add_date_rate.js"></script>
+    <c:if test="${!empty recaptcha_site_key}">
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'></script>
+    <script>
+      var onloadCallback = function() {
+        grecaptcha.render('recaptcha_element', {
+          'sitekey' : '${recaptcha_site_key}',
+          'callback' : function(response) {
+              document.getElementById('recaptcha').value = response;
+          },
+          'theme' : 'light'
+        });
+
+      };
+    </script>
+    </c:if>
 </body>
 </html>

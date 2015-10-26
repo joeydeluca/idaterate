@@ -16,6 +16,7 @@ public class DateRateDTO {
     private String description;
     //@ElementCollection(targetClass=String.class)
     private List<String> hashtags;
+    private String recaptcha;
 
     public String getDateUsername() {
         return dateUsername;
@@ -52,6 +53,14 @@ public class DateRateDTO {
     }
     public void setUserDefinedDatingSite(String userDefinedDatingSite) {
         this.userDefinedDatingSite = userDefinedDatingSite;
+    }
+
+    public String getRecaptcha() {
+        return recaptcha;
+    }
+
+    public void setRecaptcha(String recaptcha) {
+        this.recaptcha = recaptcha;
     }
 
     public DateRate toDateRate() {

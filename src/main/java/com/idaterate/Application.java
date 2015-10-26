@@ -33,7 +33,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        for(int i = 0; i < 10; i++) {
+        /*for(int i = 0; i < 10; i++) {
             DateRate dateRate = new DateRate();
             dateRate.setDateUsername("test username " + i);
             dateRate.setDescription("The best I ever had");
@@ -45,9 +45,6 @@ public class Application implements CommandLineRunner {
             dateRate.setHashtags(tags);
             dateRateRepository.save(dateRate);
         }
-
-        settingsService.addSetting(Settings.API_CODE, "12345");
-
-        System.out.println(settingsService.getSetting(Settings.API_CODE));
+        System.out.println(settingsService.getSettingValue(Settings.RECAPTCHA_SECRET_KEY));*/
     }
 }

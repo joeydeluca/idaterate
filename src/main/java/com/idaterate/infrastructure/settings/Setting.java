@@ -1,6 +1,8 @@
 package com.idaterate.infrastructure.settings;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -9,17 +11,17 @@ import javax.persistence.Id;
 @Entity
 public class Setting {
     @Id
-    private String key;
-    private String value;
+    private String settingKey;
+    private String settingValue;
 
     public Setting(String key, String value) {
-        this.key = key;
-        this.value = value;
+        this.settingKey = key;
+        this.settingValue = value;
     }
 
     private Setting() {}
 
     public String getValue() {
-        return value;
+        return settingValue;
     }
 }

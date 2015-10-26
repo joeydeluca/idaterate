@@ -1,5 +1,7 @@
 package com.idaterate.interfaces.controllers;
 
+import com.idaterate.infrastructure.service.SettingsService;
+import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.interfaces.dtos.DateRateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,6 +32,9 @@ public class AddDateRateController {
     @Autowired
     @Qualifier("dateRateValidator")
     private Validator validator;
+
+    @Autowired
+    private SettingsService settingsService;
  
     @InitBinder
     private void initBinder(WebDataBinder binder) {
@@ -46,7 +51,12 @@ public class AddDateRateController {
 
         DateRateDTO dateRateDTO = (DateRateDTO) model.asMap().get("dateRateDTO");
         model.addAttribute("showPredefinedDatingSiteOther", DatingSite.OTHER.getId().equals(dateRateDTO.getPredefinedDatingSite()));
-      
+
+        if(settingsService.getSettingValue(Settings.RECAPTCHA_SITE_KEY) != null &&
+                settingsService.getSettingValue(Settings.RECAPTCHA_SECRET_KEY) != null) {
+            model.addAttribute("recaptcha_site_key", settingsService.getSettingValue(Settings.RECAPTCHA_SITE_KEY));
+        }
+
         return "adddaterate";
     }
     

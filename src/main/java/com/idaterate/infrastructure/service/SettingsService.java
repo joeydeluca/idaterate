@@ -1,9 +1,9 @@
 package com.idaterate.infrastructure.service;
 
 import com.idaterate.infrastructure.common.Constants;
-import com.idaterate.infrastructure.settings.DefaultSettings;
+import com.idaterate.infrastructure.repositories.ISettingRepository;
 import com.idaterate.infrastructure.settings.Setting;
-import com.idaterate.infrastructure.repositories.SettingRepository;
+import com.idaterate.infrastructure.settings.Settings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,27 +15,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class SettingsService {
     @Autowired
-    private SettingRepository settingRepository;
+    private ISettingRepository settingRepository;
 
     @Cacheable(Constants.SETTINGS_CACHE)
-    public String getSetting(String key) {
-        // Find database value
-        Setting setting = settingRepository.findOne(key);
+    public String getSettingValue(Settings settingEnum) {
+        // Find database value first
+        Setting setting = settingRepository.findOne(settingEnum.getKey());
         if(setting != null) {
             return setting.getValue();
         }
 
-        // Find default value
-        if(DefaultSettings.getDefaultSettings().containsKey(key)) {
-            return DefaultSettings.getDefaultSettings().get(key);
-        }
-
-        throw new IllegalArgumentException("Invalid setting: " + key);
+        // Otherwise, use default value
+        return settingEnum.getDefaultValue();
     }
 
     @CacheEvict(value=Constants.SETTINGS_CACHE, allEntries=true)
-    public void addSetting(String key, String value) {
-        Setting setting = new Setting(key, value);
+    public void addSetting(Settings settingsEnum, String value) {
+        Setting setting = new Setting(settingsEnum.getKey(), value);
         settingRepository.save(setting);
     }
 }
