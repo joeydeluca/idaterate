@@ -1,4 +1,16 @@
 (function() {
+
+	$( "#scoreDiv" ).slider({
+		orientation: "horizontal",
+		range: "min",
+		max: 10,
+		value: $('#score').val(),
+		slide: function( event, ui ) {
+			$( '#scoreLabel' ).html( ui.value );
+			$( '#score' ).val( ui.value );
+		}
+	});
+
 	$('#hashtags').tagEditor({
 		delimiter: ', ', /* space and comma */
 		placeholder: '#'

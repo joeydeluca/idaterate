@@ -12,7 +12,7 @@ public class DateRateDTO {
     private String dateUsername;
     private String predefinedDatingSite;
     private String userDefinedDatingSite;
-    private int score;
+    private int score = 5;
     private String description;
     //@ElementCollection(targetClass=String.class)
     private List<String> hashtags;

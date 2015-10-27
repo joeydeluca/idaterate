@@ -4,14 +4,14 @@
 <html>
 <head>
     <title>iDateRate | Add Date Rate</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"/>
+    <link href="/css/jquery.tag-editor.css" rel="stylesheet" type="text/css"/>
+
     <jsp:include page="layouts/head.jsp"/>
 	
     <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
     <script src="js/jquery.caret.min.js"></script>
     <script src="js/jquery.tag-editor.min.js"></script>
-        
-    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"/>
-    <link href="/css/jquery.tag-editor.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -51,13 +51,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Give them a score</label>
-                            <div class="col-sm-8">
-                                <springForm:select path="score" class="form-control input-xs" name="score" id="score">
-                                    <springForm:options items="${scoreOptions}"/>
-                                </springForm:select>
-                                <springForm:errors path="score" cssClass="text-danger" element="div"/>
+                            <label class="col-sm-3 col-xs-12 control-label">Give them a score</label>
+                            <div class="col-xs-7">
+                                <div id="scoreDiv"></div>
                             </div>
+                            <div class="col-xs-1">
+                                <span class="badge" id="scoreLabel">${dateRateDTO.score}</span>
+                            </div>
+                            <input type="hidden" name="score" id="score" value="${dateRateDTO.score}"/>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">How did it go?</label>

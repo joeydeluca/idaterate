@@ -7,3 +7,19 @@
 	margin: 10px;
 	padding: 10px;
 }
+
+#scoreDiv {
+	height: 38px;
+}
+
+#scoreDiv .ui-slider-range {
+	background: #2fa4e7;
+}
+
+#scoreLabel {
+	padding: 13px 17px;
+}
+
+.ui-slider .ui-slider-handle {
+	height: 47px;
+}
