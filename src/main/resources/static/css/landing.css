@@ -1,3 +1,7 @@
+.navbar {
+    margin-bottom: 0;
+}
+
 .header {
 	background:url(/images/top_content_bg.jpg) no-repeat center;
 	height:600px;
@@ -14,6 +18,12 @@
 	position:relative;
 	margin:0 auto;
 	top:50px;
+}
+
+@media(max-width:767px) {
+	.mainContentWrapper {
+		width: 90%;
+	}
 }
 
 .mainContentBG{
@@ -36,6 +46,7 @@
 	width:100%;
 	top:0;
   	left:0;
+  	padding:10px;
 }
 
 .mainContentText{

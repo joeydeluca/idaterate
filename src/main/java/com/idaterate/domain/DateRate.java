@@ -1,12 +1,12 @@
 package com.idaterate.domain;
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class DateRate {
@@ -18,6 +18,8 @@ public class DateRate {
     private String description;
     @ElementCollection(targetClass=String.class)
     private List<String> hashtags;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
     
     public Long getId() {
         return id;
@@ -55,6 +57,17 @@ public class DateRate {
     public void setHashtags(List<String> hashtags) {
         this.hashtags = hashtags;
     }
-  
-    
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        createdDate = new Date();
+    }
 }

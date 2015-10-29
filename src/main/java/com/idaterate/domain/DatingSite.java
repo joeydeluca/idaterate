@@ -26,13 +26,21 @@ public enum DatingSite {
         return id;
     }
     
-    public static Map<String, String> getValues() {
+    public static Map<String, String> getValues(boolean forSearch) {
         Map<String, String> values = new LinkedHashMap<String, String>();
         for(DatingSite datingSite : DatingSite.values()) {
-            values.put(datingSite.getId(), datingSite.getDisplayName());
+            if(forSearch && DatingSite.PLEASE_CHOOSE.equals(datingSite)) {
+                values.put("", "All");
+            } else {
+                values.put(datingSite.getId(), datingSite.getDisplayName());
+            }
         }
         
         return values;
+    }
+
+    public static Map<String, String> getValues() {
+        return getValues(false);
     }
 
     public static DatingSite getEnumFromId(String id) throws IllegalArgumentException {

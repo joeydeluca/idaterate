@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.idaterate.domain.DateRate;
+import com.idaterate.domain.DatingSite;
 import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.infrastructure.service.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class Application implements CommandLineRunner {
                 dateRate.setDateUsername("test username " + i);
                 dateRate.setDescription("The best I ever had");
                 dateRate.setScore(i);
-                dateRate.setDatingSite("Match.com");
+                dateRate.setDatingSite(DatingSite.MATCH.getId());
                 List<String> tags = new ArrayList<String>();
                 tags.add("#cool");
                 tags.add("#niceguy");
