@@ -37,7 +37,8 @@ public class SearchController {
                 service.search(searchCriteriaDTO.getUsername(),
                         searchCriteriaDTO.getSelectedDatingSite(),
                         searchCriteriaDTO.getHashtags(),
-                        sortingOption);
+                        sortingOption,
+                        searchCriteriaDTO.getPage());
 
         for (DateRate dateRate : dateRates.getContent()) {
             dateRateList.add(DateRateDisplayItemDTO.build(dateRate));
@@ -46,7 +47,16 @@ public class SearchController {
         model.addAttribute("dateRateList", dateRateList);
         model.addAttribute("datingSiteOptions", DatingSite.getValues(true));
         model.addAttribute("sortingOptionDisplay", sortingOption.getDisplay());
-        model.addAttribute("nextPage", dateRates.nextPageable());
+
+        if(dateRates.hasPrevious()) {
+            model.addAttribute("previousPageNumber", dateRates.previousPageable().getPageNumber());
+        }
+        if(dateRates.hasNext()) {
+            model.addAttribute("nextPageNumber", dateRates.nextPageable().getPageNumber());
+        }
+
+        model.addAttribute("totalPages", dateRates.getTotalPages());
+        model.addAttribute("currentPage", searchCriteriaDTO.getPage());
 
         return "search";
     }

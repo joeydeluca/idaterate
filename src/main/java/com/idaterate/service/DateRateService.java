@@ -16,6 +16,7 @@ import org.springframework.data.jpa.domain.Specifications;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,13 +29,23 @@ public class DateRateService {
     DateRateRepository dateRateRepository;
 
     public List<DateRate> getBestDateRates() {
-        PageRequest request = new PageRequest(0, 5, Sort.Direction.DESC, "score");
-        return dateRateRepository.findAll(request).getContent();
+        PageRequest request = new PageRequest(0, 25, Sort.Direction.DESC, "score");
+        List<DateRate> dateRates = new ArrayList<>(dateRateRepository.findAll(request).getContent());
+        Collections.shuffle(dateRates);
+        if(dateRates.size() > 10) {
+            dateRates = dateRates.subList(0, 10);
+        }
+        return dateRates;
     }
 
     public List<DateRate> getWorstDateRates() {
-        PageRequest request = new PageRequest(0, 5, Sort.Direction.ASC, "score");
-        return dateRateRepository.findAll(request).getContent();
+        PageRequest request = new PageRequest(0, 25, Sort.Direction.ASC, "score");
+        List<DateRate> dateRates = new ArrayList<>(dateRateRepository.findAll(request).getContent());
+        Collections.shuffle(dateRates);
+        if(dateRates.size() > 10) {
+            dateRates = dateRates.subList(0, 10);
+        }
+        return dateRates;
     }
 
     public List<DateRate> findDateRateByUsername(String username) {
@@ -42,18 +53,18 @@ public class DateRateService {
     }
 
     @Cacheable(Constants.DATE_RATE_CACHE)
-    public Page<DateRate> search(String username, String datingSiteId, String hashtags, SortingOption sortingOption) {
+    public Page<DateRate> search(String username, String datingSiteId, String hashtags, SortingOption sortingOption, int page) {
+        int pageSize = 5;
+
         PageRequest request;
         if(SortingOption.BEST_DATES.equals(sortingOption)) {
-            request = new PageRequest(0, 5, Sort.Direction.DESC, "score");
+            request = new PageRequest(page, pageSize, Sort.Direction.DESC, "score");
         }
         else if(SortingOption.WORST_DATES.equals(sortingOption)) {
-            request = new PageRequest(0, 5, Sort.Direction.ASC, "score");
+            request = new PageRequest(page, pageSize, Sort.Direction.ASC, "score");
         } else {
-            request = new PageRequest(0, 5, Sort.Direction.DESC, "createdDate");
+            request = new PageRequest(page, pageSize, Sort.Direction.DESC, "createdDate");
         }
-
-
 
         List<Specification<DateRate>> specifications = new ArrayList<>();
         if(username != null && username.length() > 0) {

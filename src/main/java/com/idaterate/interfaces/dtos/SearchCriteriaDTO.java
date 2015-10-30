@@ -8,6 +8,7 @@ public class SearchCriteriaDTO {
     private String selectedDatingSite;
     private String hashtags;
     private String sortingOption;
+    private int page;
 
     public String getUsername() {
         return username;
@@ -39,5 +40,13 @@ public class SearchCriteriaDTO {
 
     public void setSortingOption(String sortingOption) {
         this.sortingOption = sortingOption;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
     }
 }

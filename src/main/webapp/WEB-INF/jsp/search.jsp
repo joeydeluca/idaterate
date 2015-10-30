@@ -34,9 +34,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-12"><input type="submit" class="btn btn-primary" value="Search"/></div>
+                            <div class="col-xs-12">
+                                <input type="button" class="btn btn-primary" value="Search" onclick="javascript:search();"/>
+                            </div>
                         </div>
                         <input type="hidden" name="sortingOption" id="sortingOption" value="${SearchCriteriaDTO.sortingOption}"/>
+                        <input type="hidden" name="page" id="page" value="${SearchCriteriaDTO.page}"/>
                   </springForm:form>
                   </div>
                 </div>
@@ -67,12 +70,34 @@
             </c:forEach>
         </div>
 
-        <a href="${nextPage}">Next</a>
+        <c:if test="${!empty dateRateList}">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <nav>
+                    <ul class="pagination pagination-lg">
+                        <li <c:if test="${currentPage == 0}">class="disabled"</c:if>><a <c:if test="${currentPage > 0}">href="javascript:setPage(${currentPage-1});" </c:if> aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <c:forEach var="i" begin="0" end="${totalPages - 1}">
+                            <li <c:if test="${i == currentPage}">class="active"</c:if>><a href="javascript:setPage(${i});">${i+1} </a></li>
+                        </c:forEach>
+                        <li <c:if test="${currentPage >= totalPages}">class="disabled"</c:if>><a  <c:if test="${currentPage < totalPages}"> href="javascript:setPage(${currentPage+1});" </c:if> aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        </c:if>
     </div>
 
     <script>
+        function search() {
+            $('#page').val(0);
+            $('#SearchCriteriaForm').submit();
+        }
         function setSort(sort) {
             $('#sortingOption').val(sort);
+            $('#SearchCriteriaForm').submit();
+        }
+        function setPage(pageNum) {
+            $('#page').val(pageNum);
             $('#SearchCriteriaForm').submit();
         }
     </script>
