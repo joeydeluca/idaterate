@@ -13,6 +13,7 @@ public class DateRateDisplayItemDTO {
     private String datingSite;
     private int score;
     private String description;
+    private String city;
     private List<String> hashtags;
 
     public String getDateUsername() {
@@ -48,12 +49,21 @@ public class DateRateDisplayItemDTO {
         this.datingSite = datingSite;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public static DateRateDisplayItemDTO build(DateRate dateRate) {
         DateRateDisplayItemDTO dateRateDTO = new DateRateDisplayItemDTO();
         dateRateDTO.dateUsername = dateRate.getDateUsername();
         dateRateDTO.description = dateRate.getDescription();
         dateRateDTO.hashtags = dateRate.getHashtags();
         dateRateDTO.score = dateRate.getScore();
+        dateRateDTO.city = dateRate.getCity();
 
         try {
             DatingSite datingSite = DatingSite.getEnumFromId(dateRate.getDatingSite());

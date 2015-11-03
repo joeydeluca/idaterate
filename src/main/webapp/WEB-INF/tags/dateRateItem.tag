@@ -15,7 +15,7 @@
       </div>
       <div class="media-body" style="position: relative;">
         <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right text-muted">Score: ${dateRate.score}</span></h4>
-          <p class="text-muted"><i>${dateRate.datingSite}</i></p>
+          <p class="text-muted"><i>${dateRate.datingSite} | ${dateRate.city}</i></p>
           <p>${dateRate.description}</p>
           <div class="text-primary" style="position: absolute; bottom: 5px;">
               <c:forEach var="hashtag" items="${dateRate.hashtags}">

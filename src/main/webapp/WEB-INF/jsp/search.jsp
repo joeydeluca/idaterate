@@ -20,16 +20,19 @@
                   <div class="panel-body">
                   <springForm:form commandName="SearchCriteriaDTO" id="SearchCriteriaForm" method="GET" action="/search">
                         <div class="row">
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
                                 Dating Site:
                                 <springForm:select path="selectedDatingSite" class="form-control input-xs" id="DatingSiteOptions">
                                     <springForm:options items="${datingSiteOptions}"/>
                                 </springForm:select>
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
+                                City: <input type="text" class="form-control" name="city" value="${SearchCriteriaDTO.city}"/>
+                            </div>
+                            <div class="col-md-3 form-group">
                                 HashTags: <input type="text" class="form-control" name="hashtags" value="${SearchCriteriaDTO.hashtags}"/>
                             </div>
-                            <div class="col-md-4 form-group">
+                            <div class="col-md-3 form-group">
                                 Username: <input type="text" class="form-control" name="username" value="${SearchCriteriaDTO.username}">
                             </div>
                         </div>

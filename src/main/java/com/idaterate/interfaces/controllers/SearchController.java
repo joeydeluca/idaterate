@@ -37,6 +37,7 @@ public class SearchController {
                 service.search(searchCriteriaDTO.getUsername(),
                         searchCriteriaDTO.getSelectedDatingSite(),
                         searchCriteriaDTO.getHashtags(),
+                        searchCriteriaDTO.getCity(),
                         sortingOption,
                         searchCriteriaDTO.getPage());
 

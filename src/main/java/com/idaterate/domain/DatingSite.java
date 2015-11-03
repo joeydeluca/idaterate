@@ -6,8 +6,18 @@ import java.util.Map;
 public enum DatingSite {
     PLEASE_CHOOSE("Please Choose", "-1"),
     OFFLINE("Offline", "offline"),
-    MATCH("Match.com", "match"),
-    OKCUPID("OkCupid.com", "okcupid"),
+    MATCH("Match", "match"),
+    OKCUPID("OkCupid", "okcupid"),
+    PLENTY_OF_FISH("PlentyOfFish", "pof"),
+    ZOOSK("Zoosk", "zoosk"),
+    EHARMONY("eHarmony", "eharmony"),
+    BADOO("Badoo", "badoo"),
+    CHRISTIAN_MINGLE("ChristianMingle", "christianmingle"),
+    OURTIME("OurTime", "ourtime"),
+    DATE_HOOKUP("DateHookup", "datehookup"),
+    CHEMISTRY("Chemistry", "chemistry"),
+    JDATE("JDate", "jdate"),
+    TINDER("Tinder", "tinder"),
     OTHER("Other", "other");
     
     private final String displayName;

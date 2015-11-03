@@ -53,7 +53,7 @@ public class DateRateService {
     }
 
     @Cacheable(Constants.DATE_RATE_CACHE)
-    public Page<DateRate> search(String username, String datingSiteId, String hashtags, SortingOption sortingOption, int page) {
+    public Page<DateRate> search(String username, String datingSiteId, String hashtags, String city, SortingOption sortingOption, int page) {
         int pageSize = 5;
 
         PageRequest request;
@@ -75,6 +75,9 @@ public class DateRateService {
         }
         if(hashtags != null && hashtags.length() > 0) {
             specifications.add((DateRateSpecification.hasHashtags(hashtags)));
+        }
+        if(city != null && city.length() > 0) {
+            specifications.add((DateRateSpecification.hasCity(city)));
         }
 
         if(specifications.size() > 0) {

@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/daterate">Rate your Date</a></li>
                 <li><a href="/search">View Ratings</a></li>
-                <li><a href="/#">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

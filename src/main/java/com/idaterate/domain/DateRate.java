@@ -16,6 +16,7 @@ public class DateRate {
     private String datingSite;
     private int score;
     private String description;
+    private String city;
     @ElementCollection(targetClass=String.class)
     private List<String> hashtags;
     @Temporal(TemporalType.TIMESTAMP)
@@ -57,13 +58,17 @@ public class DateRate {
     public void setHashtags(List<String> hashtags) {
         this.hashtags = hashtags;
     }
-
     public Date getCreatedDate() {
         return createdDate;
     }
-
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @PrePersist

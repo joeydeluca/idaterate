@@ -7,6 +7,7 @@ public class SearchCriteriaDTO {
     private String username;
     private String selectedDatingSite;
     private String hashtags;
+    private String city;
     private String sortingOption;
     private int page;
 
@@ -48,5 +49,13 @@ public class SearchCriteriaDTO {
 
     public void setPage(int page) {
         this.page = page;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

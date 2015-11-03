@@ -68,6 +68,13 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">City</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="city" name="city" class="form-control" value="${dateRateDTO.city}">
+                                <springForm:errors path="city" cssClass="text-danger" element="div"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">#Hashtags</label>
                             <div class="col-sm-8">
                                 <textarea id="hashtags" name="hashtags" class="form-control"></textarea>

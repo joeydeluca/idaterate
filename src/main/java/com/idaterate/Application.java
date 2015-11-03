@@ -47,6 +47,7 @@ public class Application implements CommandLineRunner {
                 tags.add("#cool");
                 tags.add("#niceguy");
                 dateRate.setHashtags(tags);
+                dateRate.setCity("Toronto");
                 dateRateRepository.save(dateRate);
             }
         }

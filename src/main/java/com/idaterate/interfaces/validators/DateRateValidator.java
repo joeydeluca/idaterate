@@ -36,6 +36,7 @@ public class DateRateValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateUsername", "value.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "value.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "hashtags", "value.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "city", "value.required");
 
         if(DatingSite.PLEASE_CHOOSE.getId().equals(dateRate.getPredefinedDatingSite())) {
             errors.rejectValue("predefinedDatingSite", "value.required");

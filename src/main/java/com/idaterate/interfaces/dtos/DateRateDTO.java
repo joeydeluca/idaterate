@@ -14,7 +14,7 @@ public class DateRateDTO {
     private String userDefinedDatingSite;
     private int score = 5;
     private String description;
-    //@ElementCollection(targetClass=String.class)
+    private String city;
     private List<String> hashtags;
     private String recaptcha;
 
@@ -55,6 +55,14 @@ public class DateRateDTO {
         this.userDefinedDatingSite = userDefinedDatingSite;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getRecaptcha() {
         return recaptcha;
     }
@@ -69,6 +77,7 @@ public class DateRateDTO {
         dateRate.setDescription(description);
         dateRate.setHashtags(hashtags);
         dateRate.setScore(score);
+        dateRate.setCity(city);
         if(DatingSite.OTHER.getId().equals(predefinedDatingSite)) {
             dateRate.setDatingSite(userDefinedDatingSite);
         } else {
