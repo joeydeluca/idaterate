@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class PaywallUsernameController {
+public class PaywallUsernameController extends BaseController {
     
     @Autowired
     private DateRateRepository dateRateRepository;

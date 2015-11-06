@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class IPNListenerController {
+public class IPNListenerController extends BaseController {
     
     @Autowired
     private DateRateRepository dateRateRepository;

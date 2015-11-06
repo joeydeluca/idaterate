@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ attribute name="authenticatedUsername" required="false" type="String" %>
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">

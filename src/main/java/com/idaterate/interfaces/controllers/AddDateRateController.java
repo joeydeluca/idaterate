@@ -24,7 +24,7 @@ import com.idaterate.infrastructure.repositories.DateRateRepository;
 
 @Controller
 @RequestMapping("/daterate")
-public class AddDateRateController {
+public class AddDateRateController extends BaseController {
     
     @Autowired
     private DateRateRepository dateRateRepository;

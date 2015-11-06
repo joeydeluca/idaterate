@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class LandingPageController {
+public class LandingPageController extends BaseController {
     
     @Autowired
     private DateRateService dateRateService;
