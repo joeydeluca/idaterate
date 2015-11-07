@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control input-xs" value="${joinFormDTO.email}"/>
+                                <input type="email" name="email" class="form-control input-xs" value="${joinFormDTO.email}"/>
                                 <span class="text-muted">We promise not to spam you!</span>
                                 <springForm:errors path="email" cssClass="text-danger" element="div"/>
                             </div>
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-8">
-                                <input type="text" name="password" class="form-control input-xs" value="${joinFormDTO.password}"/>
+                                <input type="password" name="password" class="form-control input-xs" value="${joinFormDTO.password}"/>
                                 <span class="text-muted">Don't forget this. You will need it to login.</span>
                                 <springForm:errors path="password" cssClass="text-danger" element="div"/>
                             </div>

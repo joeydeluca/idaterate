@@ -12,10 +12,14 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <c:if test="${empty authenticatedUsername}"><li><a href="/registration">Create an Account</a></li></c:if>
                 <li><a href="/daterate">Rate your Date</a></li>
                 <li><a href="/search">View Ratings</a></li>
-                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <c:if test="${empty authenticatedUsername}"><li><a href="/registration">Create an Account</a></li></c:if>
+                <c:if test="${empty authenticatedUsername}"><li><a href="/login">Login</a></li></c:if>
+                <c:if test="${!empty authenticatedUsername}"><li><a href="/logout">Logout</a></li></c:if>
+                <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

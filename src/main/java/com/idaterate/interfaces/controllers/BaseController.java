@@ -1,6 +1,6 @@
 package com.idaterate.interfaces.controllers;
 
-import com.idaterate.infrastructure.service.AuthenticationService;
+import com.idaterate.infrastructure.service.AuthenticationUtil;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ public class BaseController {
 
     @ModelAttribute("authenticatedUsername")
     public String getAuthenticatedUsername(HttpServletRequest request) {
-        return AuthenticationService.getToken(request);
+        return AuthenticationUtil.getToken(request);
     }
 
 }

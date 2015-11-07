@@ -1,7 +1,7 @@
 package com.idaterate.interfaces.controllers;
 
 import com.idaterate.infrastructure.repositories.IUserRepository;
-import com.idaterate.infrastructure.service.AuthenticationService;
+import com.idaterate.infrastructure.service.AuthenticationUtil;
 import com.idaterate.infrastructure.service.SettingsService;
 import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.interfaces.dtos.JoinFormDTO;
@@ -58,7 +58,7 @@ public class RegistrationController extends BaseController {
     public String submit(@ModelAttribute("joinFormDTO") @Validated JoinFormDTO joinFormDTO,
                          BindingResult bindingResult,
                          RedirectAttributes attr,
-                         HttpServletResponse response) {
+                         HttpServletResponse response) throws Exception {
         if(bindingResult.hasErrors()) {
             attr.addFlashAttribute("org.springframework.validation.BindingResult.joinFormDTO", bindingResult);
             attr.addFlashAttribute("joinFormDTO", joinFormDTO);
@@ -70,7 +70,7 @@ public class RegistrationController extends BaseController {
         userRepository.save(joinFormDTO.toUser());
 
         // Create token
-        AuthenticationService.createToken(joinFormDTO.getUsername(), response);
+        AuthenticationUtil.createToken(joinFormDTO.getUsername(), response);
 
         return "redirect:/joinsuccess";
     }
