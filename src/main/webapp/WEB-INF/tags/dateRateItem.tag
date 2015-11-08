@@ -18,11 +18,16 @@
       <div class="media-body" style="position: relative;">
         <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right text-muted">Score: ${dateRate.score}</span></h4>
           <p class="text-muted"><i>${dateRate.datingSite} | ${dateRate.city}</i></p>
-          <p>${dateRate.description}</p>
+          <p id="dateRateDescription${dateRate.id}">
+              ${dateRate.description}
+          </p>
           <c:forEach var="hashtag" items="${dateRate.hashtags}">
             <span class="label label-info">${hashtag}</span>
           </c:forEach>
-          <a href="javascript:share('${dateRate.id}','${dateRate.dateUsername}','${dateRate.description}')">share</a>
+          <hr/>
+          <div class="text-right">
+            <button class="btn btn-primary btn-xs" onclick="share('${dateRate.id}','${dateRate.dateUsername}')"><span class="glyphicon glyphicon-share"></span> Share</button>
+          </div>
       </div>
     </div>
 </div>

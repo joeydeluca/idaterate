@@ -6,8 +6,6 @@
     <title>iDateRate | Rate Your Dates</title>
     <jsp:include page="layouts/head.jsp"/>
     <link rel="stylesheet" type="text/css" href="css/landing.css">
-
-    <jsp:include page="layouts/fb.jsp"/>
 </head>
 <body>
 

@@ -15,14 +15,14 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    function share(dateRateId, username, description) {
+    function share(dateRateId, username) {
         FB.ui(
             {
                 method: 'feed',
                 link: 'http://idaterate.com/viewdaterate?id=' + dateRateId,
 				caption: 'iDateRate.com',
 				name: username + ' was Date Rated',
-				description: description
+				description: $('#dateRateDescription' + dateRateId).html()
             }, function(response){});
     }
 </script>

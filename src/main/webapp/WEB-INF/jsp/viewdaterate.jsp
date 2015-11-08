@@ -9,8 +9,7 @@
 
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="iDateRate" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="/images/date_logo.png" />
+    <meta property="og:description"   content="${dateRate.description}" />
 
 </head>
 <body>
