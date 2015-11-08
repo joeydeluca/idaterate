@@ -49,4 +49,9 @@ public class DateRateRepository {
         return iDateRateRepository.findAll(specification, pageable);
     }
 
+    @Cacheable(Constants.DATE_RATE_CACHE)
+    public DateRate findOne(long id) {
+        return iDateRateRepository.findOne(id);
+    }
+
 }

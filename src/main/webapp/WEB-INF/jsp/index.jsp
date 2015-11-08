@@ -6,8 +6,11 @@
     <title>iDateRate | Rate Your Dates</title>
     <jsp:include page="layouts/head.jsp"/>
     <link rel="stylesheet" type="text/css" href="css/landing.css">
+
+    <jsp:include page="layouts/fb.jsp"/>
 </head>
 <body>
+
     <jsp:include page="layouts/nav.jsp"/>
     <div class="header">
         <div class="mainContentWrapper">
@@ -57,6 +60,12 @@
                     <div class="panel-body">
                         <p><strong>iDateRate.com</strong> enables you to rate your dates and share your reviews with others.
                         Have an upcoming date? Find out if you are meeting a creep!</p>
+                        <div
+                          class="fb-like"
+                          data-share="false"
+                          data-width="200"
+                          data-show-faces="false">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,5 +103,8 @@
             </div>
         </div>
     </div>
+
+
+
 </body>
 </html>

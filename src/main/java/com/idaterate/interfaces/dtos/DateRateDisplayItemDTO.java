@@ -9,12 +9,21 @@ import java.util.List;
  * Created by Joe Deluca on 03/10/2015.
  */
 public class DateRateDisplayItemDTO {
+    private long id;
     private String dateUsername;
     private String datingSite;
     private int score;
     private String description;
     private String city;
     private List<String> hashtags;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getDateUsername() {
         return dateUsername;
@@ -57,8 +66,10 @@ public class DateRateDisplayItemDTO {
         this.city = city;
     }
 
+
     public static DateRateDisplayItemDTO build(DateRate dateRate) {
         DateRateDisplayItemDTO dateRateDTO = new DateRateDisplayItemDTO();
+        dateRateDTO.id = dateRate.getId();
         dateRateDTO.dateUsername = dateRate.getDateUsername();
         dateRateDTO.description = dateRate.getDescription();
         dateRateDTO.hashtags = dateRate.getHashtags();

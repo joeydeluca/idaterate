@@ -9,6 +9,7 @@ import java.util.List;
  * Created by Joe Deluca on 03/10/2015.
  */
 public class DateRateDTO {
+    private String id;
     private String dateUsername;
     private String predefinedDatingSite;
     private String userDefinedDatingSite;
@@ -17,6 +18,14 @@ public class DateRateDTO {
     private String city;
     private List<String> hashtags;
     private String recaptcha;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getDateUsername() {
         return dateUsername;

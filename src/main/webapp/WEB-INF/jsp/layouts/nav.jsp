@@ -16,9 +16,14 @@
                 <li><a href="/search">View Ratings</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <c:if test="${empty authenticatedUsername}"><li><a href="/registration">Create an Account</a></li></c:if>
-                <c:if test="${empty authenticatedUsername}"><li><a href="/login">Login</a></li></c:if>
-                <c:if test="${!empty authenticatedUsername}"><li><a href="/logout">Logout</a></li></c:if>
+                <c:if test="${empty authenticatedUsername}">
+                    <li><a href="/registration">Create an Account</a></li>
+                    <li><a href="/login">Login</a></li>
+                </c:if>
+                <c:if test="${!empty authenticatedUsername}">
+                    <li><a href="/editprofile">My Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </c:if>
                 <li><a href="/contact">Contact Us</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->

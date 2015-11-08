@@ -20,7 +20,7 @@
                         <p>Your account successfully has been created!</p>
                         <hr/>
                         <input type="button" class="btn btn-info" value="Rate a date" onclick="javacript:window.location = '/daterate';" />
-                        <input type="button" class="btn btn-default" value="Manage my profile"  onclick="javacript:window.location = '/';"/>
+                        <input type="button" class="btn btn-default" value="Manage my profile"  onclick="javacript:window.location = '/editprofile';"/>
                     </div>
                 </div>
             </div>

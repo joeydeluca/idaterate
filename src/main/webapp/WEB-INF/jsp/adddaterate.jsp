@@ -17,7 +17,6 @@
 <body>
     <jsp:include page="layouts/nav.jsp"/>
     <div class="container">
-        <h3>Tell everyone how it went</h3>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-primary">
