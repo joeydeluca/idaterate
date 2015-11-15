@@ -3,30 +3,32 @@
 
 <div id="dateRateItem" class="panel panel-default" >
     <div class="media" style="padding:20px;">
-      <div class="media-left">
+      <div class="col-sm-3">
           <a href="/viewdaterate?id=${dateRate.id}">
-              <c:choose>
-                  <c:when test="${dateRate.score <= 5}">
-                        <img src="http://www.free-emoticons.com/files/emoticons-smileys/6039.png" class="media-object"/>
-                  </c:when>
-                  <c:when test="${dateRate.score > 5}">
-                      <img src="http://www.free-emoticons.com/files/emoticons-smileys/6037.png" class="media-object"/>
-                  </c:when>
-              </c:choose>
+             <img src="
+             <c:choose>
+               <c:when test="${dateRate.score <= 5}">
+                     http://www.free-emoticons.com/files/emoticons-smileys/6039.png
+               </c:when>
+               <c:when test="${dateRate.score > 5}">
+                   http://www.free-emoticons.com/files/emoticons-smileys/6037.png
+               </c:when>
+             </c:choose>
+             " class="media-object img-responsive"/>
           </a>
       </div>
-      <div class="media-body" style="position: relative;">
-        <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right text-muted">Score: ${dateRate.score}</span></h4>
+      <div class="col-sm-9">
+        <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right badge"><span class="hidden-xs">Score:</span> ${dateRate.score}</span></h4>
           <p class="text-muted"><i>${dateRate.datingSite} | ${dateRate.city}</i></p>
           <p id="dateRateDescription${dateRate.id}">
               ${dateRate.description}
           </p>
           <c:forEach var="hashtag" items="${dateRate.hashtags}">
-            <span class="label label-info">${hashtag}</span>
+            <span class="label label-primary">${hashtag}</span>
           </c:forEach>
           <hr/>
           <div class="text-right">
-            <button class="btn btn-primary btn-xs" onclick="share('${dateRate.id}','${dateRate.dateUsername}')"><span class="glyphicon glyphicon-share"></span> Share</button>
+            <button class="btn btn-info btn-xs" onclick="share('${dateRate.id}','${dateRate.dateUsername}')"><span class="glyphicon glyphicon-share"></span> Share</button>
           </div>
       </div>
     </div>
