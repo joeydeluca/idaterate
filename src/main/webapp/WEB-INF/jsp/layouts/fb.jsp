@@ -22,7 +22,7 @@
                 link: 'http://idaterate.com/viewdaterate?id=' + dateRateId,
 				caption: 'iDateRate.com',
 				name: username + ' was Date Rated',
-				description: $('#dateRateDescription' + dateRateId).html()
+				description: $('#dateRateDescription' + dateRateId).html().trim()
             }, function(response){});
     }
 </script>
