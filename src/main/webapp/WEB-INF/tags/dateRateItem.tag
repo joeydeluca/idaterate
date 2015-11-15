@@ -14,11 +14,11 @@
                    http://www.free-emoticons.com/files/emoticons-smileys/6037.png
                </c:when>
              </c:choose>
-             " class="media-object img-responsive"/>
+             " class="media-object img-responsive hidden-xs"/>
           </a>
       </div>
       <div class="col-sm-9">
-        <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right badge"><span class="hidden-xs">Score:</span> ${dateRate.score}</span></h4>
+        <h4 class="media-heading">${dateRate.dateUsername} <span class="pull-right badge">Score: ${dateRate.score}</span></h4>
           <p class="text-muted"><i>${dateRate.datingSite} | ${dateRate.city}</i></p>
           <p id="dateRateDescription${dateRate.id}">
               ${dateRate.description}

@@ -82,19 +82,13 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h3>Worst Date Rates</h3>
-            </div>
-            <div class="col-md-6">
-                <h3>Best Date Rates</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <h3>Worst Date Rates</h3>
             <c:forEach var="dateRate" items="${worstDateRateList}">
                 <tags:dateRateItem dateRate="${dateRate}"/>
             </c:forEach>
             </div>
             <div class="col-md-6">
+            <h3>Best Date Rates</h3>
             <c:forEach var="dateRate" items="${bestDateRateList}">
                 <tags:dateRateItem dateRate="${dateRate}"/>
             </c:forEach>
