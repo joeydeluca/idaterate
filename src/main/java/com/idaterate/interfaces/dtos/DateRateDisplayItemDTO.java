@@ -1,7 +1,7 @@
 package com.idaterate.interfaces.dtos;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingSite;
+import com.idaterate.domain.DateRate.DateRate;
+import com.idaterate.domain.valueobejcts.DatingSite;
 
 import java.util.List;
 

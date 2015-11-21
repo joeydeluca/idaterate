@@ -1,4 +1,4 @@
-package com.idaterate.domain;
+package com.idaterate.domain.valueobejcts;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

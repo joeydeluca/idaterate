@@ -1,10 +1,9 @@
 package com.idaterate.interfaces.validators;
 
-import com.idaterate.infrastructure.repositories.IUserRepository;
+import com.idaterate.domain.User.IUserRepository;
 import com.idaterate.infrastructure.service.SettingsService;
 import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.interfaces.dtos.JoinFormDTO;
-import com.idaterate.service.recaptcha.RecaptchaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;

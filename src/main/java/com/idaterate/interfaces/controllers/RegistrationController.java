@@ -1,6 +1,6 @@
 package com.idaterate.interfaces.controllers;
 
-import com.idaterate.infrastructure.repositories.IUserRepository;
+import com.idaterate.domain.User.IUserRepository;
 import com.idaterate.infrastructure.service.AuthenticationUtil;
 import com.idaterate.infrastructure.service.SettingsService;
 import com.idaterate.infrastructure.settings.Settings;

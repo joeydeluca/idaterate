@@ -1,26 +1,26 @@
 package com.idaterate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingSite;
-import com.idaterate.infrastructure.settings.Settings;
-import com.idaterate.infrastructure.service.SettingsService;
+import com.idaterate.domain.DateRate.DateRate;
+import com.idaterate.domain.valueobejcts.DatingSite;
+import com.idaterate.service.DateRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
-
-import com.idaterate.infrastructure.repositories.DateRateRepository;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @EnableCaching
-//@PropertySource("classpath:application.properties")
+@EnableTransactionManagement
+@EnableJpaRepositories
 @ComponentScan("com.idaterate")
 public class Application implements CommandLineRunner {
 
@@ -28,7 +28,7 @@ public class Application implements CommandLineRunner {
     private Environment environment;
 
     @Autowired
-    private DateRateRepository dateRateRepository;
+    private DateRateService dateRateService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -48,7 +48,7 @@ public class Application implements CommandLineRunner {
                 tags.add("#niceguy");
                 dateRate.setHashtags(tags);
                 dateRate.setCity("Toronto");
-                dateRateRepository.save(dateRate);
+                dateRateService.save(dateRate);
             }
         }
     }

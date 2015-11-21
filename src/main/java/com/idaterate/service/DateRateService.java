@@ -1,12 +1,12 @@
 package com.idaterate.service;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingSite;
-import com.idaterate.domain.SortingOption;
+import com.idaterate.domain.DateRate.DateRate;
+import com.idaterate.domain.DateRate.IDateRateRepository;
+import com.idaterate.domain.valueobejcts.SortingOption;
 import com.idaterate.infrastructure.common.Constants;
-import com.idaterate.infrastructure.repositories.DateRateRepository;
-import com.idaterate.infrastructure.specifications.DateRateSpecification;
+import com.idaterate.domain.DateRate.DateRateSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,30 +26,27 @@ import java.util.List;
 public class DateRateService {
 
     @Autowired
-    DateRateRepository dateRateRepository;
+    IDateRateRepository dateRateRepository;
 
+    @Cacheable(value = Constants.DATE_RATE_CACHE, key = "#root.methodName")
     public List<DateRate> getBestDateRates() {
-        PageRequest request = new PageRequest(0, 25, Sort.Direction.DESC, "score");
+        PageRequest request = new PageRequest(0, 5, Sort.Direction.DESC, "score");
         List<DateRate> dateRates = new ArrayList<>(dateRateRepository.findAll(request).getContent());
         Collections.shuffle(dateRates);
-        if(dateRates.size() > 10) {
-            dateRates = dateRates.subList(0, 10);
-        }
         return dateRates;
     }
 
+    @Cacheable(value = Constants.DATE_RATE_CACHE, key = "#root.methodName")
     public List<DateRate> getWorstDateRates() {
-        PageRequest request = new PageRequest(0, 25, Sort.Direction.ASC, "score");
+        PageRequest request = new PageRequest(0, 5, Sort.Direction.ASC, "score");
         List<DateRate> dateRates = new ArrayList<>(dateRateRepository.findAll(request).getContent());
         Collections.shuffle(dateRates);
-        if(dateRates.size() > 10) {
-            dateRates = dateRates.subList(0, 10);
-        }
         return dateRates;
     }
 
-    public List<DateRate> findDateRateByUsername(String username) {
-        return dateRateRepository.findByUsername(username);
+    @Cacheable(Constants.DATE_RATE_CACHE)
+    public DateRate findOne(long id) {
+        return dateRateRepository.findOne(id);
     }
 
     @Cacheable(Constants.DATE_RATE_CACHE)
@@ -90,6 +87,11 @@ public class DateRateService {
         }
 
         return dateRateRepository.findAll(request);
+    }
+
+    @CacheEvict(value=Constants.DATE_RATE_CACHE, allEntries=true)
+    public DateRate save(DateRate entity) {
+        return dateRateRepository.save(entity);
     }
 
 }

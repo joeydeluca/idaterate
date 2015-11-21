@@ -1,7 +1,7 @@
 package com.idaterate.infrastructure.service;
 
 import com.idaterate.infrastructure.common.Constants;
-import com.idaterate.infrastructure.repositories.ISettingRepository;
+import com.idaterate.infrastructure.settings.ISettingRepository;
 import com.idaterate.infrastructure.settings.Setting;
 import com.idaterate.infrastructure.settings.Settings;
 import org.springframework.beans.factory.annotation.Autowired;

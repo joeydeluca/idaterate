@@ -1,8 +1,11 @@
 package com.idaterate.interfaces.controllers;
 
+import com.idaterate.domain.valueobejcts.DatingScore;
+import com.idaterate.domain.valueobejcts.DatingSite;
 import com.idaterate.infrastructure.service.SettingsService;
 import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.interfaces.dtos.DateRateDTO;
+import com.idaterate.service.DateRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,17 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingScore;
-import com.idaterate.domain.DatingSite;
-import com.idaterate.infrastructure.repositories.DateRateRepository;
-
 @Controller
 @RequestMapping("/daterate")
 public class AddDateRateController extends BaseController {
     
     @Autowired
-    private DateRateRepository dateRateRepository;
+    private DateRateService dateRateService;
     
     @Autowired
     @Qualifier("dateRateValidator")
@@ -69,7 +67,7 @@ public class AddDateRateController extends BaseController {
             
         }
         
-        dateRateRepository.save(dateRate.toDateRate());
+        dateRateService.save(dateRate.toDateRate());
         return "adddateratesuccess";
     }
 }

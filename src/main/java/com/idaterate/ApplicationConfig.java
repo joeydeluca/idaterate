@@ -9,12 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories
 public class ApplicationConfig 
 {
     @Bean

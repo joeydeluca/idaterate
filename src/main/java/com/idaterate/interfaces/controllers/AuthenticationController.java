@@ -1,8 +1,7 @@
 package com.idaterate.interfaces.controllers;
 
-import com.idaterate.domain.User;
+import com.idaterate.domain.User.IUserRepository;
 import com.idaterate.infrastructure.service.AuthenticationUtil;
-import com.idaterate.interfaces.dtos.DateRateDTO;
 import com.idaterate.interfaces.dtos.LoginFormDTO;
 import com.idaterate.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
@@ -52,7 +50,7 @@ public class AuthenticationController extends BaseController {
             return "login";
         }
 
-        User user = authenticationService.login(loginFormDTO.getEmail(), loginFormDTO.getPassword());
+        IUserRepository.User user = authenticationService.login(loginFormDTO.getEmail(), loginFormDTO.getPassword());
         if(user == null) {
             model.addAttribute("error", "No user found for Email and Password!");
             return "login";

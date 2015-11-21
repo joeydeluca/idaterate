@@ -1,4 +1,4 @@
-package com.idaterate.domain;
+package com.idaterate.domain.valueobejcts;
 
 /**
  * Created by Joe Deluca on 28/10/2015.

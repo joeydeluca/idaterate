@@ -1,4 +1,4 @@
-package com.idaterate.service.recaptcha;
+package com.idaterate.interfaces.validators;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

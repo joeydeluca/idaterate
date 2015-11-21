@@ -1,4 +1,4 @@
-package com.idaterate.infrastructure.repositories;
+package com.idaterate.infrastructure.settings;
 
 import com.idaterate.infrastructure.settings.Setting;
 import org.springframework.data.jpa.repository.JpaRepository;

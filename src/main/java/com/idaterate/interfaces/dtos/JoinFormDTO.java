@@ -1,12 +1,7 @@
 package com.idaterate.interfaces.dtos;
 
-import com.idaterate.domain.User;
+import com.idaterate.domain.User.IUserRepository;
 import com.idaterate.infrastructure.service.CryptographyUtil;
-import sun.security.provider.MD5;
-
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by Joe Deluca on 05/11/2015.
@@ -67,8 +62,8 @@ public class JoinFormDTO {
         this.agreeToEmail = agreeToEmail;
     }
 
-    public User toUser() throws Exception {
-        User user = new User();
+    public IUserRepository.User toUser() throws Exception {
+        IUserRepository.User user = new IUserRepository.User();
         user.setEmail(email);
         user.setUsername(username);
         user.setCity(city);

@@ -1,8 +1,8 @@
 package com.idaterate.interfaces.controllers;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.infrastructure.repositories.DateRateRepository;
+import com.idaterate.domain.DateRate.DateRate;
 import com.idaterate.interfaces.dtos.DateRateDisplayItemDTO;
+import com.idaterate.service.DateRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ViewDateRateController {
 
     @Autowired
-    DateRateRepository dateRateRepository;
+    DateRateService dateRateService;
 
     @RequestMapping("/viewdaterate")
     public String viewDateRate(Model model, @RequestParam(required = true) Long id) {
-        DateRate dateRate = dateRateRepository.findOne(id);
+        DateRate dateRate = dateRateService.findOne(id);
 
         model.addAttribute("dateRate", DateRateDisplayItemDTO.build(dateRate));
 

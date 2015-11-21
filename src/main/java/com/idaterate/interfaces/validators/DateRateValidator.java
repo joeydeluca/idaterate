@@ -1,11 +1,10 @@
 package com.idaterate.interfaces.validators;
 
-import com.idaterate.domain.DatingScore;
-import com.idaterate.domain.DatingSite;
+import com.idaterate.domain.valueobejcts.DatingScore;
+import com.idaterate.domain.valueobejcts.DatingSite;
 import com.idaterate.infrastructure.service.SettingsService;
 import com.idaterate.infrastructure.settings.Settings;
 import com.idaterate.interfaces.dtos.DateRateDTO;
-import com.idaterate.service.recaptcha.RecaptchaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -14,9 +13,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class DateRateValidator implements Validator {

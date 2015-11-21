@@ -1,4 +1,4 @@
-package com.idaterate.domain;
+package com.idaterate.domain.DateRate;
 
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;

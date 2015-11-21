@@ -1,7 +1,6 @@
 package com.idaterate.service;
 
-import com.idaterate.domain.User;
-import com.idaterate.infrastructure.repositories.IUserRepository;
+import com.idaterate.domain.User.IUserRepository;
 import com.idaterate.infrastructure.service.CryptographyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,8 +17,8 @@ public class AuthenticationService {
     @Autowired
     IUserRepository userRepository;
 
-    public User login(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        User user = userRepository.findByEmail(email);
+    public IUserRepository.User login(String email, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        IUserRepository.User user = userRepository.findByEmail(email);
         if(user != null && user.getPassword().equals(CryptographyUtil.toMD5(password))) {
             return user;
         }

@@ -1,11 +1,7 @@
-package com.idaterate.infrastructure.specifications;
+package com.idaterate.domain.DateRate;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingSite;
+import com.idaterate.domain.DateRate.DateRate;
 import org.springframework.data.jpa.domain.Specification;
-
-import javax.persistence.criteria.Predicate;
-import java.time.LocalDate;
 
 /**
  * Created by Joe Deluca on 28/10/2015.

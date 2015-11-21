@@ -1,8 +1,8 @@
 package com.idaterate.interfaces.controllers;
 
-import com.idaterate.domain.DateRate;
-import com.idaterate.domain.DatingSite;
-import com.idaterate.domain.SortingOption;
+import com.idaterate.domain.DateRate.DateRate;
+import com.idaterate.domain.valueobejcts.DatingSite;
+import com.idaterate.domain.valueobejcts.SortingOption;
 import com.idaterate.interfaces.dtos.DateRateDisplayItemDTO;
 import com.idaterate.interfaces.dtos.SearchCriteriaDTO;
 import com.idaterate.service.DateRateService;
